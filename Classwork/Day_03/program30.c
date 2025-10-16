@@ -3,14 +3,18 @@
 
 void Display()
 {
-    printf("1\t");
-    printf("2\t");
-    printf("3\t");
-    printf("4\t");
-    printf("5\t");
+    int iCnt = 0;
+
+    iCnt = 1;
+    while(iCnt <= 5)
+    {
+        printf("%d\t",iCnt);
+        iCnt ++;
+    }
 
     printf("\n");
 }
+    
 
 int main()
 {
