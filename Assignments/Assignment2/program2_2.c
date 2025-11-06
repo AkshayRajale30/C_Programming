@@ -4,30 +4,21 @@
 
 void Display(int iNo)
 {
-    int iCnt = 0;
-
-    while (iCnt < iNo)
+    while (iNo > 0)
     {
         printf("*");
-        iCnt++;
+        iNo--;
     }
-    
+    printf("\n");
 }
 int main()
 {
     int iValue = 0;
 
     printf("Enter number ");
-    scanf("%d\n",&iValue);
+    scanf("%d",&iValue);
 
     Display(iValue);
 
     return 0;
 }
-
-////////////////////////////////
-//
-// Enter number: 1
-// *
-//
-////////////////////////////////
