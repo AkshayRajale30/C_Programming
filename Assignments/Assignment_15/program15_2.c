@@ -7,7 +7,7 @@
         Initialize a counter frequency to 0
         Repeat until number becomes 0
             Extract last digit using modulus operator
-            If digit is even
+            If digit is odd
                 Increment frequency by 1
             Divide number by 10 to remove last digit
         End loop
@@ -25,8 +25,8 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : CountEven 
-//  Description     : It is used to count even digits in given number
+//  Function Name   : CountOdd 
+//  Description     : It is used to count odd digits in given number
 //  Input           : int
 //  Output          : int
 //  Author          : Chakradhar Rawaji Dugade
@@ -34,10 +34,10 @@
 //
 /////////////////////////////////////////////////////////////////////
 
-int CountEven(int iNo)                                              // Input
+int CountOdd(int iNo)                                              // Input
 {
     int iDigit = 0;
-    int iFreqOfEven = 0;                                                
+    int iFreqOfOdd = 0;                                                
 
     if(iNo < 0)                                                    // Updater
     {
@@ -48,15 +48,15 @@ int CountEven(int iNo)                                              // Input
     {
         iDigit = iNo % 10;                                         
         
-        if(iDigit % 2 == 0)                                            
+        if(iDigit % 2 != 0)                                            
         {
-            iFreqOfEven++;
+            iFreqOfOdd++;
         }
         iNo = iNo / 10;                                            
     }
 
-    return iFreqOfEven;                                                  
-}   // End of CountEven
+    return iFreqOfOdd;                                                  
+}   // End of CountOdd
 
 // Time complexity : O(N) 
 
@@ -74,7 +74,7 @@ int main()
     printf("Enter a number : ");
     scanf("%d", &iValue);
 
-    iRet = CountEven(iValue);                                       // Function call
+    iRet = CountOdd(iValue);                                       // Function call
 
     printf("%d\n", iRet);
 
@@ -85,10 +85,8 @@ int main()
 //
 //  Testcases successfully handled by the application
 //
-//  Input : 23495      Output : 2
-//  Input : 1018       Output : 2
-//  Input : -1018      Output : 2
-//  Input : 94434      Output : 3
-//  Input : 42644      Output : 5
-//  
+//  Input : 2395        Output : 3
+//  Input : -1018       Output : 2
+//  Input : 4246        Output : 2
+// 
 /////////////////////////////////////////////////////////////////////

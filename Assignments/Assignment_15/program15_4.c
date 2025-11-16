@@ -4,14 +4,13 @@
     START
         Accept number from user as no   
         If the input is negative then convert it to positive 
-        Initialize a counter frequency to 0
+        Initialize multiplication variable (iMult) to 1
         Repeat until number becomes 0
             Extract last digit using modulus operator
-            If digit is even
-                Increment frequency by 1
+            Multiply iMult with digit
             Divide number by 10 to remove last digit
         End loop
-        Display frequency
+        Display multiplication result
     STOP
 */
 
@@ -25,8 +24,8 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : CountEven 
-//  Description     : It is used to count even digits in given number
+//  Function Name   : MultDigits
+//  Description     : It is used to calculate multiplicatin of all digits in given 
 //  Input           : int
 //  Output          : int
 //  Author          : Chakradhar Rawaji Dugade
@@ -34,10 +33,10 @@
 //
 /////////////////////////////////////////////////////////////////////
 
-int CountEven(int iNo)                                              // Input
+int MultDigits(int iNo)                                              // Input
 {
     int iDigit = 0;
-    int iFreqOfEven = 0;                                                
+    int iMult = 1;                                                
 
     if(iNo < 0)                                                    // Updater
     {
@@ -46,17 +45,15 @@ int CountEven(int iNo)                                              // Input
 
     while(iNo != 0)                                                // Business logic
     {
-        iDigit = iNo % 10;                                         
-        
-        if(iDigit % 2 == 0)                                            
-        {
-            iFreqOfEven++;
-        }
+        iDigit = iNo % 10;
+
+        iMult = iMult * iDigit;
+
         iNo = iNo / 10;                                            
     }
 
-    return iFreqOfEven;                                                  
-}   // End of CountEven
+    return iMult;                                                  
+}   // End of MultDigits
 
 // Time complexity : O(N) 
 
@@ -74,7 +71,7 @@ int main()
     printf("Enter a number : ");
     scanf("%d", &iValue);
 
-    iRet = CountEven(iValue);                                       // Function call
+    iRet = MultDigits(iValue);                                       // Function call
 
     printf("%d\n", iRet);
 
@@ -85,10 +82,8 @@ int main()
 //
 //  Testcases successfully handled by the application
 //
-//  Input : 23495      Output : 2
-//  Input : 1018       Output : 2
-//  Input : -1018      Output : 2
-//  Input : 94434      Output : 3
-//  Input : 42644      Output : 5
-//  
+//  Input : 2395        Output : 270
+//  Input : -1018       Output : 0
+//  Input : 4246        Output : 192
+// 
 /////////////////////////////////////////////////////////////////////
