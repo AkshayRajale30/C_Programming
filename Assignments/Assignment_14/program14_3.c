@@ -4,11 +4,14 @@
     START
         Accept number from user as no   
         If the input is negative then convert it to positive 
+        Initialize a counter frequency to 0
         Repeat until number becomes 0
-            Extract last digit using modulus operator(no % 10)
-            Display the digit
+            Extract last digit using modulus operator
+            If digit is equal to 2
+                Increment frequency by 1
             Divide number by 10 to remove last digit
         End loop
+        Display frequency
     STOP
 */
 
@@ -22,31 +25,38 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : DisplayDigits  
-//  Description     : It is used to display all digits of a given number in reverse order
+//  Function Name   : CountTwo  
+//  Description     : It is used to count frequency of digit 2 in given number
 //  Input           : int
-//  Output          : void
+//  Output          : int
 //  Author          : Chakradhar Rawaji Dugade
 //  Date            : 02/11/2025
 //
 /////////////////////////////////////////////////////////////////////
 
-void DisplayDigits(int iNo)                                        // Input
+int CountTwo(int iNo)                                              // Input
 {
-    int iDigit = 0;                                                
-    
-    if(iNo < 0)                                                    // Updater       
+    int iDigit = 0;
+    int iFreq = 0;                                                
+
+    if(iNo < 0)                                                    // Updater
     {
-        iNo = -iNo;                                                
+        iNo = -iNo;                                               
     }
 
     while(iNo != 0)                                                // Business logic
     {
         iDigit = iNo % 10;                                         
-        printf("%d\n", iDigit);                                   
+        
+        if(iDigit == 2)                                            
+        {
+            iFreq++;
+        }
         iNo = iNo / 10;                                            
-    }    
-}   // End of DisplayDigits
+    }
+
+    return iFreq;                                                  
+}   // End of CountTwo
 
 // Time complexity : O(N) 
 
@@ -59,11 +69,14 @@ void DisplayDigits(int iNo)                                        // Input
 int main()
 {
     int iValue = 0;                                                // To accept user input
+    int iRet = 0;                                                  // To store result
 
-    printf("Enter number : ");
+    printf("Enter a number : ");
     scanf("%d", &iValue);
 
-    DisplayDigits(iValue);                                         // Function call
+    iRet = CountTwo(iValue);                                       // Function call
+
+    printf("%d\n", iRet);
 
     return 0;
 }   // End of main
@@ -72,13 +85,10 @@ int main()
 //
 //  Testcases successfully handled by the application
 //
-//  Input : 7846       Output : 6  
-//                              4
-//                              8  
-//                              7
-//
-//  Input : 120        Output : 0
-//                              2
-//                              1
+//  Input : 2395       Output : 1
+//  Input : 1018       Output : 0
+//  Input : 9000       Output : 0
+//  Input : 922432     Output : 3
+//  Input : 22222      Output : 5
 //  
 /////////////////////////////////////////////////////////////////////
