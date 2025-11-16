@@ -1,20 +1,23 @@
-// Print all numbers from 1 to N
+// Find sum of first N natural numbers
 
 #include <stdio.h>
 
-void print_numbers(int limit)
+int sum_natural_numbers(int limit)
 {
+    int sum = 0;
+
     if (limit <= 0)
     {
         printf("Invalid input\n");
-        return;
+        return 0;
     }
 
     for (int i = 1; i <= limit; i++)
     {
-        printf("%d ", i);
+        sum += i;
     }
-    printf("\n");
+
+    return sum;
 }
 
 int main()
@@ -24,7 +27,9 @@ int main()
     printf("Enter number: ");
     scanf("%d", &limit);
 
-    print_numbers(limit);
+    int result = sum_natural_numbers(limit);
+    if (result != 0)
+        printf("Sum of first %d natural numbers: %d\n", limit, result);
 
     return 0;
 }
@@ -32,6 +37,6 @@ int main()
 ////////////////////////////////////////////
 //
 // Enter number: 10
-// 1 2 3 4 5 6 7 8 9 10
+// Sum of first 10 natural numbers: 55
 //
 ////////////////////////////////////////////

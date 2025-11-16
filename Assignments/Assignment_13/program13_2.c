@@ -1,8 +1,8 @@
-// Print all numbers from 1 to N
+// Print all even numbers up to N
 
 #include <stdio.h>
 
-void print_numbers(int limit)
+void print_even_numbers(int limit)
 {
     if (limit <= 0)
     {
@@ -12,7 +12,10 @@ void print_numbers(int limit)
 
     for (int i = 1; i <= limit; i++)
     {
-        printf("%d ", i);
+        if (i % 2 == 0)
+        {
+            printf("%d ", i);
+        }
     }
     printf("\n");
 }
@@ -24,7 +27,7 @@ int main()
     printf("Enter number: ");
     scanf("%d", &limit);
 
-    print_numbers(limit);
+    print_even_numbers(limit);
 
     return 0;
 }
@@ -32,6 +35,6 @@ int main()
 ////////////////////////////////////////////
 //
 // Enter number: 10
-// 1 2 3 4 5 6 7 8 9 10
+// 2 4 6 8 10
 //
 ////////////////////////////////////////////
