@@ -1,8 +1,8 @@
-// Write a program which accept range from user and display all numbers in between that range.
+// Write a program which accept accept range from user and display all numbers in between that range in reverse order. 
 
 #include<stdio.h>
 
-void RangeDisplay(int iStart , int iEnd)
+void RangeDisplayRev(int iStart , int iEnd)
 {
     if(iStart > iEnd)
     {
@@ -10,7 +10,7 @@ void RangeDisplay(int iStart , int iEnd)
         return;
     }
 
-    for(int i = iStart; i <= iEnd; i++)
+    for(int i = iEnd; i >= iStart; i--)
     {
         printf("%d ", i);
     }
@@ -27,15 +27,15 @@ int main()
     printf("Enter ending point: ");
     scanf("%d", &iValue2);
 
-    RangeDisplay(iValue1, iValue2);
+    RangeDisplayRev(iValue1, iValue2);
 
     return 0;
 }
 
-/////////////////////////////////////////////////////
+//////////////////////////////////////////
 //
 // Enter starting point: 23
 // Enter ending point: 30
-// 23 24 25 26 27 28 29 30
+// 30 29 28 27 26 25 24 23
 //
-/////////////////////////////////////////////////////
+//////////////////////////////////////////

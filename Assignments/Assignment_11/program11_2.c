@@ -1,8 +1,8 @@
-// Write a program which accept range from user and display all numbers in between that range.
+// Write a program which accept range from user and display all even numbers in between that range. 
 
 #include<stdio.h>
 
-void RangeDisplay(int iStart , int iEnd)
+void RangeDisplayEven(int iStart , int iEnd)
 {
     if(iStart > iEnd)
     {
@@ -12,7 +12,10 @@ void RangeDisplay(int iStart , int iEnd)
 
     for(int i = iStart; i <= iEnd; i++)
     {
-        printf("%d ", i);
+        if(i % 2 == 0)
+        {
+            printf("%d ", i);
+        }
     }
     printf("\n");
 }
@@ -27,15 +30,15 @@ int main()
     printf("Enter ending point: ");
     scanf("%d", &iValue2);
 
-    RangeDisplay(iValue1, iValue2);
+    RangeDisplayEven(iValue1, iValue2);
 
     return 0;
 }
 
-/////////////////////////////////////////////////////
+/////////////////////////////////////////////////
 //
 // Enter starting point: 23
 // Enter ending point: 30
-// 23 24 25 26 27 28 29 30
+// 24 26 28 30
 //
-/////////////////////////////////////////////////////
+/////////////////////////////////////////////////
