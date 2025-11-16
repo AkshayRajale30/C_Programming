@@ -4,14 +4,17 @@
     START
         Accept number from user as no   
         If the input is negative then convert it to positive 
-        Initialize a counter frequency to 0
+        Take two variables EvenSum and OddSum 
         Repeat until number becomes 0
             Extract last digit using modulus operator
             If digit is even
-                Increment frequency by 1
+                Add it to EvenSum
+            Otherwise
+                Add it to OddSum
             Divide number by 10 to remove last digit
         End loop
-        Display frequency
+        Calculate difference as (EvenSum - OddSum)
+        Display the difference
     STOP
 */
 
@@ -25,8 +28,9 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : CountEven 
-//  Description     : It is used to count even digits in given number
+//  Function Name   : CountDiff
+//  Description     : It is used to calculate difference between summation of even 
+//                    and odd digits in a given number
 //  Input           : int
 //  Output          : int
 //  Author          : Akshay Ashok Rajale
@@ -34,10 +38,11 @@
 //
 /////////////////////////////////////////////////////////////////////
 
-int CountEven(int iNo)                                              // Input
+int CountDiff(int iNo)                                              // Input
 {
     int iDigit = 0;
-    int iFreqOfEven = 0;                                                
+    int iEvenSum = 0;
+    int iOddSum = 0;
 
     if(iNo < 0)                                                    // Updater
     {
@@ -47,16 +52,21 @@ int CountEven(int iNo)                                              // Input
     while(iNo != 0)                                                // Business logic
     {
         iDigit = iNo % 10;                                         
-        
-        if(iDigit % 2 == 0)                                            
+
+        if(iDigit % 2 == 0)                                        
         {
-            iFreqOfEven++;
+            iEvenSum = iEvenSum + iDigit;
         }
+        else                                                       
+        {
+            iOddSum = iOddSum + iDigit;
+        }
+
         iNo = iNo / 10;                                            
     }
 
-    return iFreqOfEven;                                                  
-}   // End of CountEven
+    return (iEvenSum - iOddSum);                                   
+}   // End of CountDiff
 
 // Time complexity : O(N) 
 
@@ -74,7 +84,7 @@ int main()
     printf("Enter a number : ");
     scanf("%d", &iValue);
 
-    iRet = CountEven(iValue);                                       // Function call
+    iRet = CountDiff(iValue);                                      // Function call
 
     printf("%d\n", iRet);
 
@@ -85,10 +95,9 @@ int main()
 //
 //  Testcases successfully handled by the application
 //
-//  Input : 23495      Output : 2
-//  Input : 1018       Output : 2
-//  Input : -1018      Output : 2
-//  Input : 94434      Output : 3
-//  Input : 42644      Output : 5
+//  Input : 2395       Output : -15   
+//  Input : 1018       Output : 6     
+//  Input : 8440       Output : 16    
+//  Input : 5733       Output : -18   
 //  
 /////////////////////////////////////////////////////////////////////
