@@ -1,15 +1,16 @@
 /*
     Algorithm
         START
-            Accept N from user.
-            Accept the number NO whose presence we want to check.
-            Accept all N array elements from the user.
-            For each array element:
-                If element == NO
-                    return TRUE
-            If loop completes, return FALSE.
+            Accept N
+            Accept array elements
+            Initialise product = 1
+            For each element:
+                If element % 2 != 0
+                    product = product * element
+                If no odd number found
+                return 0
+            Else return product
         END
-
 */
 
 /////////////////////////////////////////////////////////////////////
@@ -24,8 +25,7 @@
 /////////////////////////////////////////////////////////////////////
 //
 //  Function Name   : Frequency
-//  Description     : N numbers from user and accept one another number as NO , 
-//                    check whether NO is present or not.    
+//  Description     : N numbers from user and return product of all odd elements.    
 //  Input           : int
 //  Output          : int
 //  Author          : Akshay Ashok Rajale
@@ -33,56 +33,46 @@
 //
 /////////////////////////////////////////////////////////////////////
 
-#define TRUE 1
-#define FALSE 0
-
-typedef int BOOL;
-
-BOOL Check(int Arr[], int iLength, int iNo)
+int Product(int Arr[], int iLength)
 {
-    int iCnt = 0;
+    int iCnt = 0, iProd = 1;
+    int OddFound = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] == iNo)
+        if(Arr[iCnt] % 2 != 0)
         {
-            return TRUE;
+            iProd = iProd * Arr[iCnt];
+            OddFound = 1;
         }
     }
-    return FALSE;
+
+    if(OddFound == 0)
+    {
+        return 0;
+    }
+
+    return iProd;
 }
 
 int main()
 {
-    int iSize = 0, iCnt = 0, iValue = 0;
+    int iSize = 0, iCnt = 0, iRet = 0;
     int *p = NULL;
-    BOOL bRet = FALSE;
 
     printf("Enter number of elements: ");
     scanf("%d", &iSize);
 
-    printf("Enter the number to check: ");
-    scanf("%d", &iValue);
-
     p = (int *)malloc(iSize * sizeof(int));
-
-    printf("Enter %d elements:\n", iSize);
 
     for(iCnt = 0; iCnt < iSize; iCnt++)
     {
         scanf("%d", &p[iCnt]);
     }
 
-    bRet = Check(p, iSize, iValue);
+    iRet = Product(p, iSize);
 
-    if(bRet == TRUE)
-    {
-        printf("Number is present\n");
-    }
-    else
-    {
-        printf("Number is not present\n");
-    }
+    printf("Product of odd elements is: %d\n", iRet);
 
     free(p);
     return 0;
@@ -91,14 +81,12 @@ int main()
 /////////////////////////////////////////////////////////////////////
 //
 // Enter number of elements: 6
-// Enter the number to check: 66
-// Enter 6 elements:
-// 85
+// 15
 // 66
 // 3
-// 66
-// 93
+// 70
+// 10
 // 88
-// Number is present
+// Product of odd elements is: 45
 //
 /////////////////////////////////////////////////////////////////////

@@ -1,15 +1,12 @@
 /*
     Algorithm
         START
-            Accept N from user.
-            Accept the number NO whose presence we want to check.
-            Accept all N array elements from the user.
-            For each array element:
-                If element == NO
-                    return TRUE
-            If loop completes, return FALSE.
+            Accept N, Start, End.
+            Accept array elements.
+            For each element:
+                If element >= Start AND element <= End
+                    Print element
         END
-
 */
 
 /////////////////////////////////////////////////////////////////////
@@ -24,8 +21,8 @@
 /////////////////////////////////////////////////////////////////////
 //
 //  Function Name   : Frequency
-//  Description     : N numbers from user and accept one another number as NO , 
-//                    check whether NO is present or not.    
+//  Description     : N numbers from user and accept Range, Display 
+//                    all elements from that range    
 //  Input           : int
 //  Output          : int
 //  Author          : Akshay Ashok Rajale
@@ -33,56 +30,41 @@
 //
 /////////////////////////////////////////////////////////////////////
 
-#define TRUE 1
-#define FALSE 0
-
-typedef int BOOL;
-
-BOOL Check(int Arr[], int iLength, int iNo)
+void Range(int Arr[], int iLength, int iStart, int iEnd)
 {
     int iCnt = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] == iNo)
+        if(Arr[iCnt] >= iStart && Arr[iCnt] <= iEnd)
         {
-            return TRUE;
+            printf("%d ", Arr[iCnt]);
         }
     }
-    return FALSE;
 }
 
 int main()
 {
-    int iSize = 0, iCnt = 0, iValue = 0;
+    int iSize = 0, iCnt = 0, iStart = 0, iEnd = 0;
     int *p = NULL;
-    BOOL bRet = FALSE;
 
     printf("Enter number of elements: ");
     scanf("%d", &iSize);
 
-    printf("Enter the number to check: ");
-    scanf("%d", &iValue);
+    printf("Enter start of range: ");
+    scanf("%d", &iStart);
+
+    printf("Enter end of range: ");
+    scanf("%d", &iEnd);
 
     p = (int *)malloc(iSize * sizeof(int));
-
-    printf("Enter %d elements:\n", iSize);
 
     for(iCnt = 0; iCnt < iSize; iCnt++)
     {
         scanf("%d", &p[iCnt]);
     }
 
-    bRet = Check(p, iSize, iValue);
-
-    if(bRet == TRUE)
-    {
-        printf("Number is present\n");
-    }
-    else
-    {
-        printf("Number is not present\n");
-    }
+    Range(p, iSize, iStart, iEnd);
 
     free(p);
     return 0;
@@ -91,14 +73,15 @@ int main()
 /////////////////////////////////////////////////////////////////////
 //
 // Enter number of elements: 6
-// Enter the number to check: 66
-// Enter 6 elements:
+// Enter start of range: 60
+// Enter end of range: 90
 // 85
 // 66
 // 3
-// 66
+// 76
 // 93
 // 88
-// Number is present
+//
+// Output: 66 76 88
 //
 /////////////////////////////////////////////////////////////////////

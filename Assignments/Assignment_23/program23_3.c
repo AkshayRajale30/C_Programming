@@ -1,15 +1,14 @@
 /*
     Algorithm
         START
-            Accept N from user.
-            Accept the number NO whose presence we want to check.
-            Accept all N array elements from the user.
-            For each array element:
-                If element == NO
-                    return TRUE
-            If loop completes, return FALSE.
+            Accept N and NO.
+            Accept N integers.
+            Initialise pos = -1
+            For i = 0 to N-1:
+            If Arr[i] == NO
+                    pos = i
+            Return pos
         END
-
 */
 
 /////////////////////////////////////////////////////////////////////
@@ -25,7 +24,7 @@
 //
 //  Function Name   : Frequency
 //  Description     : N numbers from user and accept one another number as NO , 
-//                    check whether NO is present or not.    
+//                    return index of last occurrence of that NO.    
 //  Input           : int
 //  Output          : int
 //  Author          : Akshay Ashok Rajale
@@ -33,56 +32,44 @@
 //
 /////////////////////////////////////////////////////////////////////
 
-#define TRUE 1
-#define FALSE 0
-
-typedef int BOOL;
-
-BOOL Check(int Arr[], int iLength, int iNo)
+int LastOcc(int Arr[], int iLength, int iNo)
 {
-    int iCnt = 0;
+    int iCnt = 0, iPos = -1;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
         if(Arr[iCnt] == iNo)
         {
-            return TRUE;
+            iPos = iCnt;
         }
     }
-    return FALSE;
+    return iPos;
 }
 
 int main()
 {
-    int iSize = 0, iCnt = 0, iValue = 0;
+    int iSize = 0, iCnt = 0, iValue = 0, iRet = 0;
     int *p = NULL;
-    BOOL bRet = FALSE;
 
     printf("Enter number of elements: ");
     scanf("%d", &iSize);
 
-    printf("Enter the number to check: ");
+    printf("Enter number: ");
     scanf("%d", &iValue);
 
     p = (int *)malloc(iSize * sizeof(int));
-
-    printf("Enter %d elements:\n", iSize);
 
     for(iCnt = 0; iCnt < iSize; iCnt++)
     {
         scanf("%d", &p[iCnt]);
     }
 
-    bRet = Check(p, iSize, iValue);
+    iRet = LastOcc(p, iSize, iValue);
 
-    if(bRet == TRUE)
-    {
-        printf("Number is present\n");
-    }
+    if(iRet == -1)
+        printf("There is no such number\n");
     else
-    {
-        printf("Number is not present\n");
-    }
+        printf("Last occurrence is at index %d\n", iRet);
 
     free(p);
     return 0;
@@ -91,7 +78,7 @@ int main()
 /////////////////////////////////////////////////////////////////////
 //
 // Enter number of elements: 6
-// Enter the number to check: 66
+// Enter the number: 66
 // Enter 6 elements:
 // 85
 // 66
@@ -99,6 +86,6 @@ int main()
 // 66
 // 93
 // 88
-// Number is present
+// Last occurrence is at index 3
 //
 /////////////////////////////////////////////////////////////////////
