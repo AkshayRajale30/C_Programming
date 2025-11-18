@@ -23,7 +23,7 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : Frequency
+//  Function Name   : Check
 //  Description     : N numbers from user and accept one another number as NO , 
 //                    check whether NO is present or not.    
 //  Input           : int
@@ -101,4 +101,5 @@ int main()
 // 88
 // Number is present
 //
+
 /////////////////////////////////////////////////////////////////////
