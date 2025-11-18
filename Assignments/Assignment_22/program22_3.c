@@ -1,17 +1,21 @@
 /*
     Algorithm
-
         START
-            Read the value of N from the user.
-            Allocate memory for an array of N integers.
-            Read all N numbers from the user and store them into the array.
-            Initialise a counter:
-                EvenCount = 0
-            For each element in the array:
-                If (element % 2 == 0)
-                Increment EvenCount
-            Display the value of EvenCount.
-            Free the allocated memory.
+
+            Accept the value of N.
+            Allocate memory for N integers.
+            Accept N elements from the user.
+            Initialize Flag = FALSE.
+            For i = 0 to N-1
+                If Arr[i] == 11
+                    Set Flag = TRUE
+                    Break loop
+                If Flag is TRUE
+                    Print "11 is present"
+                Else
+                    Print "11 is absent"
+            Free allocated memory.
+
         STOP
 */
 
@@ -26,9 +30,9 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : CountEven
-//  Description     : N numbers from user and return 
-//                    frequency of even numbers. 
+//  Function Name   : Check
+//  Description     : N numbers from user check whether that numbers 
+//                    contains 11 in it or not.   
 //  Input           : int
 //  Output          : int
 //  Author          : Akshay Ashok Rajale
@@ -36,24 +40,29 @@
 //
 /////////////////////////////////////////////////////////////////////
 
-int CountEven(int Arr[], int iLength)
+typedef int BOOL;
+#define TRUE 1
+#define FALSE 0
+
+BOOL Check(int Arr[], int iLength)
 {
-    int iCnt = 0, iCount = 0;
+    int iCnt = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] % 2 == 0)
+        if(Arr[iCnt] == 11)
         {
-            iCount++;
+            return TRUE;
         }
     }
-    return iCount;
+    return FALSE;
 }
 
 int main()
 {
-    int iSize = 0, iCnt = 0, iRet = 0;
+    int iSize = 0, iCnt = 0;
     int *p = NULL;
+    BOOL bRet = FALSE;
 
     printf("Enter number of elements: ");
     scanf("%d", &iSize);
@@ -74,23 +83,27 @@ int main()
         scanf("%d", &p[iCnt]);
     }
 
-    iRet = CountEven(p, iSize);
-    printf("Frequency of even numbers is: %d\n", iRet);
+    bRet = Check(p, iSize);
+
+    if(bRet == TRUE)
+        printf("11 is present\n");
+    else
+        printf("11 is absent\n");
 
     free(p);
     return 0;
 }
 
-/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
 //
 // Enter number of elements: 6
 // Enter 6 elements:
 // Enter element 1: 85
 // Enter element 2: 66
-// Enter element 3: 3
+// Enter element 3: 11
 // Enter element 4: 80
 // Enter element 5: 93
 // Enter element 6: 88
-// Frequency of even numbers is: 3
+// 11 is present
 //
-/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////

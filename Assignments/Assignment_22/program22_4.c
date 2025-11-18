@@ -1,17 +1,15 @@
 /*
     Algorithm
-
         START
-            Read the value of N from the user.
-            Allocate memory for an array of N integers.
-            Read all N numbers from the user and store them into the array.
-            Initialise a counter:
-                EvenCount = 0
-            For each element in the array:
-                If (element % 2 == 0)
-                Increment EvenCount
-            Display the value of EvenCount.
-            Free the allocated memory.
+            Accept the value of N.
+            Allocate memory.
+            Accept N elements.
+            Initialize Count = 0
+            For i = 0 to N-1
+                If Arr[i] == 11
+                        Count++
+            Display Count.
+            Free memory.
         STOP
 */
 
@@ -26,9 +24,8 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : CountEven
-//  Description     : N numbers from user and return 
-//                    frequency of even numbers. 
+//  Function Name   : Frequency
+//  Description     : N numbers from user and return frequency of 11 form it.   
 //  Input           : int
 //  Output          : int
 //  Author          : Akshay Ashok Rajale
@@ -36,18 +33,18 @@
 //
 /////////////////////////////////////////////////////////////////////
 
-int CountEven(int Arr[], int iLength)
+int Frequency(int Arr[], int iLength)
 {
-    int iCnt = 0, iCount = 0;
+    int iCnt = 0, Count = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] % 2 == 0)
+        if(Arr[iCnt] == 11)
         {
-            iCount++;
+            Count++;
         }
     }
-    return iCount;
+    return Count;
 }
 
 int main()
@@ -74,23 +71,24 @@ int main()
         scanf("%d", &p[iCnt]);
     }
 
-    iRet = CountEven(p, iSize);
-    printf("Frequency of even numbers is: %d\n", iRet);
+    iRet = Frequency(p, iSize);
+
+    printf("Frequency of 11: %d\n", iRet);
 
     free(p);
     return 0;
 }
 
-/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
 //
 // Enter number of elements: 6
 // Enter 6 elements:
 // Enter element 1: 85
-// Enter element 2: 66
+// Enter element 2: 11
 // Enter element 3: 3
-// Enter element 4: 80
-// Enter element 5: 93
-// Enter element 6: 88
-// Frequency of even numbers is: 3
+// Enter element 4: 15
+// Enter element 5: 11
+// Enter element 6: 111
+// Frequency of 11: 2
 //
-/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////

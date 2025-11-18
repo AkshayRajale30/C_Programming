@@ -1,17 +1,15 @@
 /*
     Algorithm
-
         START
-            Read the value of N from the user.
-            Allocate memory for an array of N integers.
-            Read all N numbers from the user and store them into the array.
-            Initialise a counter:
-                EvenCount = 0
-            For each element in the array:
-                If (element % 2 == 0)
-                Increment EvenCount
-            Display the value of EvenCount.
-            Free the allocated memory.
+            Accept N.
+            Accept number NO.
+            Allocate memory for N integers.
+            Accept N elements from user.
+            Initialize Count = 0
+            For i = 0 to N-1
+                If Arr[i] == NO
+                        Count++
+            Display Count.
         STOP
 */
 
@@ -26,9 +24,9 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : CountEven
-//  Description     : N numbers from user and return 
-//                    frequency of even numbers. 
+//  Function Name   : Frequency
+//  Description     :  N numbers from user and accept one another 
+//                     number as NO , return frequency of NO form it.   
 //  Input           : int
 //  Output          : int
 //  Author          : Akshay Ashok Rajale
@@ -36,27 +34,30 @@
 //
 /////////////////////////////////////////////////////////////////////
 
-int CountEven(int Arr[], int iLength)
+int Frequency(int Arr[], int iLength, int iNo)
 {
-    int iCnt = 0, iCount = 0;
+    int iCnt = 0, Count = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
-        if(Arr[iCnt] % 2 == 0)
+        if(Arr[iCnt] == iNo)
         {
-            iCount++;
+            Count++;
         }
     }
-    return iCount;
+    return Count;
 }
 
 int main()
 {
-    int iSize = 0, iCnt = 0, iRet = 0;
+    int iSize = 0, iCnt = 0, iRet = 0, iValue = 0;
     int *p = NULL;
 
     printf("Enter number of elements: ");
     scanf("%d", &iSize);
+
+    printf("Enter the number: ");
+    scanf("%d", &iValue);
 
     p = (int *)malloc(iSize * sizeof(int));
 
@@ -74,23 +75,25 @@ int main()
         scanf("%d", &p[iCnt]);
     }
 
-    iRet = CountEven(p, iSize);
-    printf("Frequency of even numbers is: %d\n", iRet);
+    iRet = Frequency(p, iSize, iValue);
+
+    printf("Frequency of %d is: %d\n", iValue, iRet);
 
     free(p);
     return 0;
 }
 
-/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
 //
 // Enter number of elements: 6
+// Enter the number: 66
 // Enter 6 elements:
 // Enter element 1: 85
 // Enter element 2: 66
 // Enter element 3: 3
-// Enter element 4: 80
+// Enter element 4: 66
 // Enter element 5: 93
 // Enter element 6: 88
-// Frequency of even numbers is: 3
+// Frequency of 66 is: 2
 //
-/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////

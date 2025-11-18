@@ -2,16 +2,22 @@
     Algorithm
 
         START
-            Read the value of N from the user.
-            Allocate memory for an array of N integers.
-            Read all N numbers from the user and store them into the array.
-            Initialise a counter:
+
+            Accept the value of N.
+            Allocate memory for N integers.
+            Accept N elements from the user.
+            Initialize:
                 EvenCount = 0
-            For each element in the array:
-                If (element % 2 == 0)
-                Increment EvenCount
-            Display the value of EvenCount.
-            Free the allocated memory.
+                OddCount = 0
+            For i = 0 to N-1
+                If Arr[i] % 2 == 0
+                    EvenCount++
+                Else
+                    OddCount++
+            Calculate Diff = EvenCount – OddCount
+            Display Diff.
+            Free allocated memory.
+
         STOP
 */
 
@@ -26,9 +32,9 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : CountEven
-//  Description     : N numbers from user and return 
-//                    frequency of even numbers. 
+//  Function Name   : Frequency
+//  Description     : N numbers from user and return difference between 
+//                    frequency of even number and odd numbers.  
 //  Input           : int
 //  Output          : int
 //  Author          : Akshay Ashok Rajale
@@ -36,18 +42,22 @@
 //
 /////////////////////////////////////////////////////////////////////
 
-int CountEven(int Arr[], int iLength)
+int Frequency(int Arr[], int iLength)
 {
-    int iCnt = 0, iCount = 0;
+    int iCnt = 0, Even = 0, Odd = 0;
 
     for(iCnt = 0; iCnt < iLength; iCnt++)
     {
         if(Arr[iCnt] % 2 == 0)
         {
-            iCount++;
+            Even++;
+        }
+        else
+        {
+            Odd++;
         }
     }
-    return iCount;
+    return Even - Odd;
 }
 
 int main()
@@ -74,23 +84,24 @@ int main()
         scanf("%d", &p[iCnt]);
     }
 
-    iRet = CountEven(p, iSize);
-    printf("Frequency of even numbers is: %d\n", iRet);
+    iRet = Frequency(p, iSize);
+    printf("Difference is: %d\n", iRet);
 
     free(p);
     return 0;
 }
 
-/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
 //
-// Enter number of elements: 6
-// Enter 6 elements:
+// Enter number of elements: 7
+// Enter 7 elements:
 // Enter element 1: 85
 // Enter element 2: 66
 // Enter element 3: 3
 // Enter element 4: 80
 // Enter element 5: 93
 // Enter element 6: 88
-// Frequency of even numbers is: 3
+// Enter element 7: 90
+// Difference is: 1
 //
-/////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////
