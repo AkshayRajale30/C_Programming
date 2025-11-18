@@ -24,7 +24,7 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : Frequency
+//  Function Name   : Product
 //  Description     : N numbers from user and return product of all odd elements.    
 //  Input           : int
 //  Output          : int

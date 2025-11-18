@@ -21,7 +21,7 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : Frequency
+//  Function Name   : FirstOcc
 //  Description     :  N numbers from user and accept one another number as NO , 
 //                     return index of first occurrence of that NO.   
 //  Input           : int

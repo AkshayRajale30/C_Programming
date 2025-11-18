@@ -22,7 +22,7 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : Frequency
+//  Function Name   : LastOcc
 //  Description     : N numbers from user and accept one another number as NO , 
 //                    return index of last occurrence of that NO.    
 //  Input           : int

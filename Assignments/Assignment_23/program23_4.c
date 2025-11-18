@@ -20,7 +20,7 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : Frequency
+//  Function Name   : Range
 //  Description     : N numbers from user and accept Range, Display 
 //                    all elements from that range    
 //  Input           : int
