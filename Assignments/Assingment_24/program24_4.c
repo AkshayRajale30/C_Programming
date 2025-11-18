@@ -1,14 +1,11 @@
 /*
     Algorithm
         Start
-
             Accept number of elements N
             Allocate array dynamically
             Accept all N elements from user
-            Assume first element as Maximum
-            Traverse array
-            If any element is greater than current Maximum → update Maximum
-            After loop ends, return Maximum
+                Count digits
+            If digit count == 3 → display that number
         Stop
 */
 
@@ -23,8 +20,9 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : Maximum
-//  Description     : N numbers from user and return the largest number.   
+//  Function Name   : Digits
+//  Description     : N numbers from user and display all such 
+//                    numbers which contains 3 digits in it.     
 //  Input           : int
 //  Output          : int
 //  Author          : Akshay Ashok Rajale
@@ -32,24 +30,37 @@
 //
 /////////////////////////////////////////////////////////////////////
 
-int Maximum(int Arr[], int iLength)
+void Digits(int Arr[], int iLength)
 {
-    int iMax = Arr[0];
-    int i = 0;
+    int i = 0, num = 0, count = 0;
 
-    for(i = 1; i < iLength; i++)
+    for(i = 0; i < iLength; i++)
     {
-        if(Arr[i] > iMax)
+        num = Arr[i];
+
+        if(num < 0)
         {
-            iMax = Arr[i];
+            num = -num;    // handle negative numbers
+        }
+
+        count = 0;
+
+        while(num != 0)
+        {
+            num = num / 10;
+            count++;
+        }
+
+        if(count == 3)
+        {
+            printf("%d ", Arr[i]);
         }
     }
-    return iMax;
 }
 
 int main()
 {
-    int iSize = 0, iRet = 0, iCnt = 0;
+    int iSize = 0, iCnt = 0;
     int *p = NULL;
 
     printf("Enter number of elements: ");
@@ -62,7 +73,7 @@ int main()
         return -1;
     }
 
-    printf("Enter %d elements:\n",iSize);
+    printf("Enter %d elements:\n", iSize);
 
     for(iCnt = 0; iCnt < iSize; iCnt++)
     {
@@ -70,9 +81,8 @@ int main()
         scanf("%d",&p[iCnt]);
     }
 
-    iRet = Maximum(p, iSize);
-
-    printf("Largest Number is: %d\n", iRet);
+    printf("3 Digit numbers are: ");
+    Digits(p, iSize);
 
     free(p);
 
@@ -83,12 +93,12 @@ int main()
 //
 // Enter number of elements: 6
 // Enter 6 elements:
-// Enter element 1: 85
-// Enter element 2: 66
+// Enter element 1: 8225
+// Enter element 2: 665
 // Enter element 3: 3
-// Enter element 4: 66
-// Enter element 5: 93
-// Enter element 6: 88
-// Largest Number is: 93
+// Enter element 4: 76
+// Enter element 5: 953
+// Enter element 6: 858
+// 3 Digit numbers are: 665 953 858
 //
 /////////////////////////////////////////////////////////////////////

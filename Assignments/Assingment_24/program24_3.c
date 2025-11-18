@@ -1,14 +1,17 @@
 /*
     Algorithm
         Start
-
-            Accept number of elements N
-            Allocate array dynamically
-            Accept all N elements from user
-            Assume first element as Maximum
-            Traverse array
-            If any element is greater than current Maximum → update Maximum
-            After loop ends, return Maximum
+            Accept N (number of elements)
+            Allocate dynamic array
+            Accept all N elements
+            Assume
+                max = Arr[0]
+                min = Arr[0]
+            Traverse array  
+            If element > max → update max
+            If element < min → update min
+            After loop → compute difference = max - min
+            Return difference
         Stop
 */
 
@@ -23,8 +26,9 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : Maximum
-//  Description     : N numbers from user and return the largest number.   
+//  Function Name   : Difference
+//  Description     : N numbers from user and return the difference 
+//                    between largest and smallest number.    
 //  Input           : int
 //  Output          : int
 //  Author          : Akshay Ashok Rajale
@@ -32,9 +36,10 @@
 //
 /////////////////////////////////////////////////////////////////////
 
-int Maximum(int Arr[], int iLength)
+int Difference(int Arr[], int iLength)
 {
     int iMax = Arr[0];
+    int iMin = Arr[0];
     int i = 0;
 
     for(i = 1; i < iLength; i++)
@@ -43,8 +48,14 @@ int Maximum(int Arr[], int iLength)
         {
             iMax = Arr[i];
         }
+
+        if(Arr[i] < iMin)
+        {
+            iMin = Arr[i];
+        }
     }
-    return iMax;
+
+    return iMax - iMin;
 }
 
 int main()
@@ -62,7 +73,7 @@ int main()
         return -1;
     }
 
-    printf("Enter %d elements:\n",iSize);
+    printf("Enter %d elements:\n", iSize);
 
     for(iCnt = 0; iCnt < iSize; iCnt++)
     {
@@ -70,9 +81,9 @@ int main()
         scanf("%d",&p[iCnt]);
     }
 
-    iRet = Maximum(p, iSize);
+    iRet = Difference(p, iSize);
 
-    printf("Largest Number is: %d\n", iRet);
+    printf("Difference is: %d\n", iRet);
 
     free(p);
 
@@ -89,6 +100,6 @@ int main()
 // Enter element 4: 66
 // Enter element 5: 93
 // Enter element 6: 88
-// Largest Number is: 93
+// Difference is: 90
 //
 /////////////////////////////////////////////////////////////////////

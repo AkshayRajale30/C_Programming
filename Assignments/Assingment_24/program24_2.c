@@ -1,14 +1,13 @@
 /*
     Algorithm
         Start
-
-            Accept number of elements N
-            Allocate array dynamically
-            Accept all N elements from user
-            Assume first element as Maximum
-            Traverse array
-            If any element is greater than current Maximum → update Maximum
-            After loop ends, return Maximum
+            Accept total elements N
+            Allocate memory dynamically
+            Accept N integers from user
+            Assume first element is the Minimum
+            Traverse full array 
+            If current element < Minimum → update Minimum
+            After loop ends return Minimum
         Stop
 */
 
@@ -23,8 +22,8 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : Maximum
-//  Description     : N numbers from user and return the largest number.   
+//  Function Name   : Minimum
+//  Description     : N numbers from user and return the smallest number.     
 //  Input           : int
 //  Output          : int
 //  Author          : Akshay Ashok Rajale
@@ -32,19 +31,19 @@
 //
 /////////////////////////////////////////////////////////////////////
 
-int Maximum(int Arr[], int iLength)
+int Minimum(int Arr[], int iLength)
 {
-    int iMax = Arr[0];
+    int iMin = Arr[0];
     int i = 0;
 
     for(i = 1; i < iLength; i++)
     {
-        if(Arr[i] > iMax)
+        if(Arr[i] < iMin)
         {
-            iMax = Arr[i];
+            iMin = Arr[i];
         }
     }
-    return iMax;
+    return iMin;
 }
 
 int main()
@@ -62,7 +61,7 @@ int main()
         return -1;
     }
 
-    printf("Enter %d elements:\n",iSize);
+    printf("Enter %d elements:\n", iSize);
 
     for(iCnt = 0; iCnt < iSize; iCnt++)
     {
@@ -70,9 +69,9 @@ int main()
         scanf("%d",&p[iCnt]);
     }
 
-    iRet = Maximum(p, iSize);
+    iRet = Minimum(p, iSize);
 
-    printf("Largest Number is: %d\n", iRet);
+    printf("Smallest Number is: %d\n", iRet);
 
     free(p);
 
@@ -89,6 +88,6 @@ int main()
 // Enter element 4: 66
 // Enter element 5: 93
 // Enter element 6: 88
-// Largest Number is: 93
+// Smallest Number is: 3
 //
 /////////////////////////////////////////////////////////////////////
