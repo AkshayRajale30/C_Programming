@@ -1,17 +1,13 @@
 /*
     Algorithm
         Start
-            Accept N (number of elements)
-            Allocate array dynamically
-            Accept N integers from user
-            Initialize
-                evenSum = 0
-                oddSum = 0
-            Loop through array
-                If number % 2 == 0 → evenSum += number
-                Else → oddSum += number
-            Compute difference = evenSum − oddSum
-            Return difference
+            Accept number of elements N
+            Allocate dynamic array
+            Accept N elements from user
+            For each element in array:
+                Check if number is even → (num % 2 == 0)
+                Check if number is divisible by 5 → (num % 5 == 0)
+                If both conditions true → display the number
         Stop
 */
 
@@ -26,9 +22,8 @@
 
 /////////////////////////////////////////////////////////////////////
 //
-//  Function Name   : Difference
-//  Description     : N numbers from user and return difference between summation 
-//                    of even elements and summation of odd elements.
+//  Function Name   : Display
+//  Description     : N numbers from user and display all such elements which are even and divisible by 5. 
 //  Input           : int
 //  Output          : int
 //  Author          : Akshay Ashok Rajale
@@ -36,30 +31,22 @@
 //
 /////////////////////////////////////////////////////////////////////
 
-int Difference(int Arr[], int iLength)
+void Display(int Arr[], int iLength)
 {
-    int evenSum = 0;
-    int oddSum = 0;
     int i = 0;
 
     for(i = 0; i < iLength; i++)
     {
-        if(Arr[i] % 2 == 0)
+        if((Arr[i] % 2 == 0) && (Arr[i] % 5 == 0))
         {
-            evenSum += Arr[i];
-        }
-        else
-        {
-            oddSum += Arr[i];
+            printf("%d ", Arr[i]);
         }
     }
-
-    return evenSum - oddSum;
 }
 
 int main()
 {
-    int iSize = 0, iRet = 0, iCnt = 0;
+    int iSize = 0, iCnt = 0;
     int *p = NULL;
 
     printf("Enter number of elements: ");
@@ -76,13 +63,12 @@ int main()
 
     for(iCnt = 0; iCnt < iSize; iCnt++)
     {
-        printf("Enter element %d: ", iCnt + 1);
+        printf("Enter element %d: ", iCnt+1);
         scanf("%d", &p[iCnt]);
     }
 
-    iRet = Difference(p, iSize);
-
-    printf("Result is: %d\n", iRet);
+    printf("Even and divisible by 5: ");
+    Display(p, iSize);
 
     free(p);
 
@@ -99,6 +85,6 @@ int main()
 // Enter element 4: 80
 // Enter element 5: 93
 // Enter element 6: 88
-// Result is: 53
+// Even and divisible by 5: 80
 //
 /////////////////////////////////////////////////////////////////////
