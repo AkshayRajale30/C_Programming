@@ -1,9 +1,8 @@
 /*
     Algorithm
         Start
-            Accept integer iNo
-            Set ch = 'A'
-            Loop i = 1 to iNo: print ch, increment ch
+            Accept iNo
+            Loop i = 1 to iNo: print 2*i
         Stop
 */
 
@@ -20,7 +19,7 @@
 //  Function Name   : Pattern
 //  Description     : Accept number from user and display below pattern.
 //  Input           : int
-//  Output          : char
+//  Output          : number or pattern
 //  Author          : Akshay Ashok Rajale
 //  Date            : 20/11/2025
 //
@@ -28,13 +27,10 @@
 
 void Pattern(int iNo)
 {
-    char ch = 'A';
-
-    for(int i = 0; i < iNo; i++, ch++)
+    for (int i = 1; i <= iNo; i++)
     {
-        printf("%c\t",ch);
+        printf("%d ", 2 * i);
     }
-    printf("\n");
 }
 
 int main()
@@ -42,7 +38,7 @@ int main()
     int iValue = 0;
 
     printf("Enter number of elements : ");
-    if (scanf("%d", &iValue) != 1) return 0;
+    scanf("%d %d", &iValue);
 
     Pattern(iValue);
 
@@ -51,7 +47,7 @@ int main()
 
 ///////////////////////////////////////////////////////////////
 //
-// Enter number of elements : 5
-// A       B       C       D       E
+// Enter number of elements : 8
+// 2 4 6 8 10 12 14 16
 //
 ///////////////////////////////////////////////////////////////
