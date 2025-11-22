@@ -1,8 +1,8 @@
 /*
     Algorithm
         Start
-            Accept iNo
-            Loop i = 1 to iNo: print i and *
+            Accept rows & columns
+            For each row i: print number i repeated
         Stop
 */
 
@@ -20,7 +20,7 @@
 //  Description     : Accept number of rows and number of columns 
 //                    from user and display below pattern.
 //  Input           : int
-//  Output          : pattern
+//  Output          : int
 //  Author          : Akshay Ashok Rajale
 //  Date            : 20/11/2025
 //
@@ -32,7 +32,7 @@ void Pattern(int iRow, int iCol)
     {
         for(int j = 1; j <= iCol; j++)
         {
-            printf("*  ");
+            printf("%d ",i);
         }
         printf("\n");
     }
@@ -53,10 +53,10 @@ int main()
 ///////////////////////////////////////////////////////////////
 //
 // Enter number of rows and columns : 4
-// 3
-// *  *  *
-// *  *  *
-// *  *  *
-// *  *  *
+// 5
+// 1 1 1 1 1
+// 2 2 2 2 2
+// 3 3 3 3 3
+// 4 4 4 4 4
 //
 ///////////////////////////////////////////////////////////////

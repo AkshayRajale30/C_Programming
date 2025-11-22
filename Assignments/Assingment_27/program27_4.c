@@ -1,8 +1,10 @@
 /*
     Algorithm
         Start
-            Accept iNo
-            Loop i = 1 to iNo: print i and *
+            Accept rows and columns
+            For each column:
+             If column is odd → print *
+             Else → print #
         Stop
 */
 
@@ -32,7 +34,10 @@ void Pattern(int iRow, int iCol)
     {
         for(int j = 1; j <= iCol; j++)
         {
-            printf("*  ");
+            if(j % 2 == 1)
+                printf("*  ");
+            else
+                printf("#  ");
         }
         printf("\n");
     }
@@ -52,11 +57,10 @@ int main()
 
 ///////////////////////////////////////////////////////////////
 //
-// Enter number of rows and columns : 4
-// 3
-// *  *  *
-// *  *  *
-// *  *  *
-// *  *  *
+// Enter number of rows and columns : 3
+// 4
+// *  #  *  #
+// *  #  *  #
+// *  #  *  #
 //
 ///////////////////////////////////////////////////////////////
