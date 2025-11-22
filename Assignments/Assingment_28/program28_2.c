@@ -2,7 +2,8 @@
     Algorithm
         Start
             Accept rows & columns
-            For each row, print letters from A to required columns
+            If row is odd → uppercase
+            If row is even → lowercase
         Stop
 */
 
@@ -28,14 +29,22 @@
 
 void Pattern(int iRow, int iCol)
 {
-    char ch = 'A';
+    int i = 0, j = 0;
+    char ch1 = 'A';
+    char ch2 = 'a';
 
-    for(int i = 1; i <= iRow; i++,ch++)
+    for(i = 0; i <= iRow; i++) // Loop for rows
     {
-        ch = 'A';
-        for(int j = 1; j <= iCol; j++,ch++)
+        for(j = 0; j <= iCol; j++) // Loop for columns
         {
-            printf("%c ",ch);
+            if(i % 2 == 0) 
+            {
+                printf("%c ", ch1 + j); 
+            }
+            else 
+            {
+                printf("%c ", ch2 + j); 
+            }
         }
         printf("\n");
     }
@@ -58,8 +67,8 @@ int main()
 // Enter number of rows and columns : 4
 // 4
 // A B C D
+// a b c d
 // A B C D
-// A B C D
-// A B C D
+// a b c d
 //
 ///////////////////////////////////////////////////////////////

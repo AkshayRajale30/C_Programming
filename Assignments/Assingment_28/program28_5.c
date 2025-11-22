@@ -1,8 +1,8 @@
 /*
     Algorithm
         Start
-            Accept rows & columns
-            For each row, print letters from A to required columns
+            Start number = 1
+            For each cell, print number and increment
         Stop
 */
 
@@ -28,14 +28,15 @@
 
 void Pattern(int iRow, int iCol)
 {
-    char ch = 'A';
+    int i = 0, j = 0;
+    int num = 1;
 
-    for(int i = 1; i <= iRow; i++,ch++)
+    for(i = 1; i <= iRow; i++) // Loop for rows
     {
-        ch = 'A';
-        for(int j = 1; j <= iCol; j++,ch++)
+        for(j = 1; j <= iCol; j++) // Loop for columns
         {
-            printf("%c ",ch);
+            printf("%d ", num);  
+            num++;  
         }
         printf("\n");
     }
@@ -57,9 +58,8 @@ int main()
 //
 // Enter number of rows and columns : 4
 // 4
-// A B C D
-// A B C D
-// A B C D
-// A B C D
+// 1 2 3 4
+// 5 6 7 8
+// 9 10 11 12
 //
 ///////////////////////////////////////////////////////////////
