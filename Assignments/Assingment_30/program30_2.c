@@ -1,9 +1,9 @@
 /*
     Algorithm
         Start
-            In each row i
-            Columns j ≤ i → print '*'
-            Columns j > i → print '#'
+            In row i
+            j ≤ (iCol - i + 1) → '*'
+            Otherwise → '#'
         Stop
 */
 
@@ -33,7 +33,7 @@ void Pattern(int iRow, int iCol)
     {
         for(int j = 1; j <= iCol; j++)
         {
-            if(j <= i)
+            if(j <= iCol - i + 1)
                 printf("* ");
             else
                 printf("# ");
@@ -58,9 +58,9 @@ int main()
 //
 // Enter number of rows and columns : 4
 // 4
-// * # # #
-// * * # #
-// * * * #
 // * * * *
+// * * * #
+// * * # #
+// * # # #
 //
 ///////////////////////////////////////////////////////////////
