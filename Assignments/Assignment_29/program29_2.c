@@ -1,11 +1,8 @@
 /*
     Algorithm
         Start
-            Take iRow, iCol
-            Start number = 1
-            Loop rows
-            Print number and increment
-            If number > 9 → reset to 1
+            For odd rows → print even numbers
+            For even rows → print odd numbers
         Stop
 */
 
@@ -31,17 +28,13 @@
 
 void Pattern(int iRow, int iCol)
 {
-    int num = 1;
     for(int i = 1; i <= iRow; i++)
     {
+        int num = (i % 2 == 1) ? 2 : 1;
         for(int j = 1; j <= iCol; j++)
         {
             printf("%d ", num);
-            num++;
-            if(num > 9)
-            {
-                num = 1;
-            }
+            num += 2;
         }
         printf("\n");
     }
@@ -62,10 +55,10 @@ int main()
 ///////////////////////////////////////////////////////////////
 //
 // Enter number of rows and columns : 4
-// 4
-// 1 2 3 4
-// 5 6 7 8
-// 9 1 2 3
-// 4 5 6 7
+// 5
+// 2 4 6 8 10
+// 1 3 5 7 9
+// 2 4 6 8 10
+// 1 3 5 7 9
 //
 ///////////////////////////////////////////////////////////////

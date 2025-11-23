@@ -1,11 +1,8 @@
 /*
     Algorithm
         Start
-            Take iRow, iCol
-            Start number = 1
-            Loop rows
-            Print number and increment
-            If number > 9 → reset to 1
+            If row is odd → print alphabet
+            If row even → print numbers
         Stop
 */
 
@@ -23,7 +20,7 @@
 //  Description     : Accept number of rows and number of columns 
 //                    from user and display below pattern.
 //  Input           : int
-//  Output          : int
+//  Output          : 
 //  Author          : Akshay Ashok Rajale
 //  Date            : 21/11/2025
 //
@@ -31,17 +28,18 @@
 
 void Pattern(int iRow, int iCol)
 {
-    int num = 1;
     for(int i = 1; i <= iRow; i++)
     {
-        for(int j = 1; j <= iCol; j++)
+        if(i % 2 == 1)
         {
-            printf("%d ", num);
-            num++;
-            if(num > 9)
-            {
-                num = 1;
-            }
+            char ch = 'a';
+            for(int j = 1; j <= iCol; j++, ch++)
+                printf("%c ", ch);
+        }
+        else
+        {
+            for(int j = 1; j <= iCol; j++)
+                printf("%d ", j);
         }
         printf("\n");
     }
@@ -61,11 +59,12 @@ int main()
 
 ///////////////////////////////////////////////////////////////
 //
-// Enter number of rows and columns : 4
-// 4
-// 1 2 3 4
-// 5 6 7 8
-// 9 1 2 3
-// 4 5 6 7
+// Enter number of rows and columns : 5
+// 5
+// a b c d e
+// 1 2 3 4 5
+// a b c d e
+// 1 2 3 4 5
+// a b c d e
 //
 ///////////////////////////////////////////////////////////////
