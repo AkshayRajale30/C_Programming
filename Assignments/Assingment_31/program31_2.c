@@ -1,15 +1,17 @@
 /*
     Algorithm
         Start
-            Read integers iRow and iCol.
+            Read iRow, iCol.
             Set i = 1.
-            WHILE i <= iRow do:
-                Set j = 1.  
-                WHILE j <= i and j <= iCol do:
-                    Print "*" (followed by a tab or space, not newline).
-                    Increment j by 1.
-                Print newline to move to the next output row.
-                Increment i by 1.
+            WHILE i <= iRow:
+                Compute stars = iCol - i + 1.
+                If stars < 0, set stars = 0.
+                Set j = 1.
+                WHILE j <= stars:
+                    Print "*" (tab/space).
+                    Increment j.
+                Print newline.
+                Increment i.
         Stop
 */
 
@@ -35,11 +37,14 @@
 
 void Pattern(int iRow, int iCol)
 {
-    int i = 0, j = 0;
+    int i  = 0, j = 0;
 
     for (i = 1; i <= iRow; i++)
     {
-        for (j = 1; j <= iCol && j <= i; j++)
+        int iNo = iCol - i + 1;
+
+        if (iNo < 0) iNo = 0;
+        for (int j = 1; j <= iNo; j++)
         {
             printf("*\t");
         }
@@ -63,9 +68,9 @@ int main()
 //
 // Enter number of rows and columns : 4
 // 4
-// *
-// *       *
-// *       *       *
 // *       *       *       *
+// *       *       *
+// *       *
+// *
 //
 ///////////////////////////////////////////////////////////////

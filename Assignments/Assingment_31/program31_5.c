@@ -1,15 +1,12 @@
 /*
     Algorithm
         Start
-            Read integers iRow and iCol.
-            Set i = 1.
-            WHILE i <= iRow do:
-                Set j = 1.  
-                WHILE j <= i and j <= iCol do:
-                    Print "*" (followed by a tab or space, not newline).
-                    Increment j by 1.
-                Print newline to move to the next output row.
-                Increment i by 1.
+            Read iRow, iCol.
+            For i from 1 to iRow:
+                For k from 1 to i-1: print a tab (this creates the left offset).
+                For num from i to iCol:
+                    Print num (followed by a tab).
+                Print newline.
         Stop
 */
 
@@ -27,7 +24,7 @@
 //  Description     : Accept number of rows and number of columns 
 //                    from user and display below pattern.
 //  Input           : int
-//  Output          : 
+//  Output          : int
 //  Author          : Akshay Ashok Rajale
 //  Date            : 22/11/2025
 //
@@ -35,13 +32,13 @@
 
 void Pattern(int iRow, int iCol)
 {
-    int i = 0, j = 0;
+    int i, j;
 
-    for (i = 1; i <= iRow; i++)
+    for(i = 1; i <= iRow; i++)
     {
-        for (j = 1; j <= iCol && j <= i; j++)
+        for(j = i; j <= iCol; j++)
         {
-            printf("*\t");
+            printf("%d\t", j);
         }
         printf("\n");
     }
@@ -63,9 +60,9 @@ int main()
 //
 // Enter number of rows and columns : 4
 // 4
-// *
-// *       *
-// *       *       *
-// *       *       *       *
+// 1       2       3       4
+// 2       3       4
+// 3       4
+// 4
 //
 ///////////////////////////////////////////////////////////////
