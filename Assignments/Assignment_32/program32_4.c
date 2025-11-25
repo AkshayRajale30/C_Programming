@@ -1,13 +1,12 @@
 /*
     Algorithm
         Start
-            Accept inputs iRow and iCol.
-            For each row i from 1 to iRow:
-                Compute anti = iCol - i + 1.
-                For each column j from 1 to iCol:
-                    If j == anti → print #.
-                    Else print *.   
-                Move to next line.
+            Read iRow and iCol.
+            For each position (i, j):
+                If border → print *
+                Else if j <= i → print #
+                Else → print $
+            Continue until all rows are printed.
         Stop
 */
 
@@ -33,18 +32,32 @@
 
 void Pattern(int iRow, int iCol)
 {
-    int i, j, anti;
+    int i, j;
+    int iNo1, iNo2;
 
     for(i = 1; i <= iRow; i++)
     {
-        anti = iCol - i + 1;
-
         for(j = 1; j <= iCol; j++)
         {
-            if(j == anti)
-                printf("#\t");
-            else
+            iNo1 = iCol - i + 1;
+            iNo2 = iRow - i;
+
+            if(i == 1 || i == iRow || j == 1 || j == iCol)
+            {
                 printf("*\t");
+            }
+            else if(j == iNo1)
+            {
+                printf("*\t");
+            }
+            else if(j <= iNo2)
+            {
+                printf("#\t");
+            }
+            else
+            {
+                printf("$\t");
+            }
         }
         printf("\n");
     }
@@ -66,9 +79,11 @@ int main()
 //
 // Enter number of rows and columns : 4
 // 4
-// *       *       *       #
-// *       *       #       *
-// *       #       *       *
-// #       *       *       *
+// *       *       *       *       *       *
+// *       #       #       #       *       *
+// *       #       #       *       $       *
+// *       #       *       $       $       *
+// *       *       $       $       $       *
+// *       *       *       *       *       *
 //
 ///////////////////////////////////////////////////////////////
