@@ -5,14 +5,13 @@
 
 typedef int BOOL;
 
-BOOL ChkAlpha(char ch)
+BOOL ChkDigit(char ch)
 {
-    if(ch >= 'A' && ch <= 'Z'||
-       ch >= 'a' && ch <= 'z') 
+    if(ch >= '0' && ch <= '9')
     {
         return TRUE;
     }
-    else
+    else 
     {
         return FALSE;
     }
@@ -27,15 +26,15 @@ int main()
     printf("Enter the character : \n");
     scanf(" %c", &cValue);
 
-    bRet = ChkAlpha(cValue);
+    bRet = ChkDigit(cValue);
 
     if(bRet == TRUE)
     {
-        printf("It is Character");
+        printf("It is Digit");
     }
     else
     {
-        printf("It is not a Character");
+        printf("It is not a Digit");
 
     }    
 
