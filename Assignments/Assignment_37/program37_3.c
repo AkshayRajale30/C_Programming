@@ -1,29 +1,27 @@
 #include<stdio.h>
 
-#define TRUE 1
-#define FALSE 0
-
-typedef int BOOL;
-
-BOOL ChkChar(char *str, char ch)
+int FirstChar(char *str, char ch)
 {
+    int iCount = 0;
+
     while(*str != '\0')
     {
         if(*str == ch)
         {
-            return TRUE;
+            return iCount;
         }
-
+        iCount++;
         str++;
     }
-    
+
+    return -1;    
 }
 
 int main()
 {
     char Arr[50] ={'\0'}; 
     char cValue = '\0';
-    BOOL bRet = FALSE;
+    int iRet = 0;
 
     printf("Enter string : \n");
     scanf("%[^\n]s", Arr); 
@@ -31,16 +29,9 @@ int main()
     printf("Enter the character : \n");
     scanf(" %c", &cValue); 
 
-    bRet = ChkChar(Arr, cValue);
+    iRet = FirstChar(Arr, cValue);
 
-    if(bRet == TRUE)
-    {
-        printf("Character Found\n");
-    }
-    else
-    {
-        printf("Character not Found\n");
-    }
+    printf("Character location is : %d", iRet);
 
     return 0;
 }
