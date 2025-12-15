@@ -2,12 +2,12 @@
 
 void Display()
 {
-    static int iCnt = 1;
+    static int iCnt = 5;
 
-    if(iCnt<=5)
+    if(iCnt>=1)
     {
-        printf("*\t");
-        iCnt++;
+        printf("%d\t",iCnt);
+        iCnt--;
         Display();
     }
 }

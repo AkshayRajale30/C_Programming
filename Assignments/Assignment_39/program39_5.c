@@ -2,11 +2,11 @@
 
 void Display()
 {
-    static int iCnt = 1;
+    static char iCnt = 'a';
 
-    if(iCnt<=5)
+    if(iCnt<='f')
     {
-        printf("*\t");
+        printf("%c\t",iCnt);
         iCnt++;
         Display();
     }

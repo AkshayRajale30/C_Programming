@@ -6,7 +6,7 @@ void Display()
 
     if(iCnt<=5)
     {
-        printf("*\t");
+        printf("%d\t",iCnt);
         iCnt++;
         Display();
     }
