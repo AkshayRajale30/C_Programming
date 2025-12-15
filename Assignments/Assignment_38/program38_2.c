@@ -1,20 +1,19 @@
 #include<stdio.h>
 
-void StrCpyRev(char *src, char *dest)
+void StrCpyX(char *src, char *dest)
 {
-    char *end = src;
-
-    while(*end != '\0')
+    while(*src != '\0')
     {
-        end++;
-    }
-    end--;
-
-    while(end >= src)
-    {
-        *dest = *end;
-        dest++;
-        end--;
+        if(*src == ' ')
+        {
+           src++;
+        }
+        else
+        {
+            *dest = *src;
+            src++;
+            dest++;
+        }
     }
     *dest = '\0';
 }
@@ -27,7 +26,7 @@ int main()
     printf("Enter the string : \n");
     scanf("%[^\n]s", Arr);
 
-    StrCpyRev(Arr, Brr);
+    StrCpyX(Arr, Brr);
 
     printf("Modified String is : %s", Brr);
 

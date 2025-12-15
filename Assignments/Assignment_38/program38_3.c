@@ -1,20 +1,16 @@
 #include<stdio.h>
 
-void StrCpyRev(char *src, char *dest)
+void StrCpyCap(char *src, char *dest)
 {
-    char *end = src;
-
-    while(*end != '\0')
+    while(*src != '\0')
     {
-        end++;
-    }
-    end--;
-
-    while(end >= src)
-    {
-        *dest = *end;
+        if(*src >= 'a' && *src <= 'z')
+        {
+            *src = *src - 32;
+        }
+        *dest = *src;
+        src++;
         dest++;
-        end--;
     }
     *dest = '\0';
 }
@@ -27,7 +23,7 @@ int main()
     printf("Enter the string : \n");
     scanf("%[^\n]s", Arr);
 
-    StrCpyRev(Arr, Brr);
+    StrCpyCap(Arr, Brr);
 
     printf("Modified String is : %s", Brr);
 
