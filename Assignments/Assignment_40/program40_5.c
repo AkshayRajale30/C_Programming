@@ -2,19 +2,17 @@
 
 void Display(int iNo)
 {
-    static int iCnt = 1;
+    if(iNo <= 0)
+        return;
 
-    if(iCnt <= iNo)
-    {
-        printf("*\t");
-        iCnt++;
-        Display(iNo);
-    }
+    printf("%c\t", 'A' + iNo - 1);
+    Display(iNo - 1);       //imp
 }
+
 
 int main()
 {
-    int iValue = 0;
+    int iValue = 0;;
 
     printf("Enter the number : ");
     scanf("%d", &iValue);

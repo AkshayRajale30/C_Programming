@@ -6,7 +6,7 @@ void Display(int iNo)
 
     if(iCnt <= iNo)
     {
-        printf("*\t");
+        printf("%d\t",iCnt);
         iCnt++;
         Display(iNo);
     }
@@ -14,7 +14,7 @@ void Display(int iNo)
 
 int main()
 {
-    int iValue = 0;
+    int iValue = 0;;
 
     printf("Enter the number : ");
     scanf("%d", &iValue);
