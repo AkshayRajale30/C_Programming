@@ -1,12 +1,12 @@
 #include<stdio.h>
 
-int CountCapital(char *str)
+int CountSmall(char *str)
 {
     int iCnt = 0;
-
+    
     while(*str != '\0')
     {
-        if(*str >= 'A' && *str <= 'Z')
+        if(*str >= 'a' && *str <= 'z')
         {
             iCnt++;
         }
@@ -24,7 +24,7 @@ int main()
     printf("Enter the string : \n");
     scanf("%[^\n]s", Arr);
 
-    iRet = CountCapital(Arr);
+    iRet = CountSmall(Arr);
 
-    printf("The count of capital is : %d", iRet);
+    printf("The count of small is : %d", iRet);
 }
