@@ -1,12 +1,12 @@
 #include<stdio.h>
 
-void strlwrX(char str[])
+void struprX(char str[])
 {
     while(*str != '\0')
     {
-        if(*str >= 'A' && *str <= 'Z')
+        if(*str >= 'a' && *str <= 'z')
         {
-            *str = *str + 32;
+            *str = *str - 32;
         }
         str++;
     }
@@ -20,7 +20,7 @@ int main()
     printf("Enter string : \n");
     scanf("%[^\n]s", Arr); 
 
-    strlwrX(Arr);
+    struprX(Arr);
 
     printf("Modified string is : %s\n", Arr);
 

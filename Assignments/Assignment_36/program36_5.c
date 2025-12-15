@@ -1,28 +1,32 @@
 #include<stdio.h>
 
-void strlwrX(char str[])
+int CountWhite(char str[])
 {
+    int iCount = 0;
+
     while(*str != '\0')
     {
-        if(*str >= 'A' && *str <= 'Z')
+        if(*str == ' ')
         {
-            *str = *str + 32;
+            iCount++;
         }
         str++;
     }
     
+    return iCount;
 }
 
 int main()
 {
+    int iRet = 0;
     char Arr[50] ={'\0'}; 
 
     printf("Enter string : \n");
     scanf("%[^\n]s", Arr); 
 
-    strlwrX(Arr);
+    iRet = CountWhite(Arr);
 
-    printf("Modified string is : %s\n", Arr);
+    printf("The count of white space is : %d\n", iRet);
 
     return 0;
 }
