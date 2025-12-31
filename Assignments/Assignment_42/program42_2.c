@@ -18,6 +18,10 @@ void InsertLast(PPNODE first, int No)
     PNODE newn = NULL;
 
     newn = (PNODE)malloc(sizeof(NODE));
+    if(newn == NULL)
+    {
+        return;
+    }
 
     newn->data = No;
     newn->next = NULL;
@@ -48,21 +52,22 @@ void Display(PNODE first)
     printf("NULL\n");
 }
 
-int SearchFirstOcc(PNODE first, int no)
+int SearchLastOcc(PNODE first, int no)
 {
-    int iFirstOcc = 1;
+    int iPos = 1;
+    int iLastOcc = -1;
 
     while(first != NULL)
     {
-        if((first->data) == no)
+        if(first->data == no)
         {
-            return iFirstOcc;
+            iLastOcc = iPos;
         }
-        iFirstOcc++;
+        iPos++;
         first = first->next;
     }
     
-    return -1;
+    return iLastOcc;
 }
 
 int main()
@@ -76,18 +81,19 @@ int main()
 
     for(iCnt = 1; iCnt <= iValue; iCnt++)
     {
-        printf("Enter data for node %d : ", iCnt);
+        printf("Enter the data for node %d : ", iCnt);
         scanf("%d", &iNo1);
 
         InsertLast(&head, iNo1);
     }
-
+    
     Display(head);
 
-    printf("Enter element to find it's first occurrence : ");
+
+    printf("Enter the element to find it's last occurrence :");
     scanf("%d", &iNo2);
 
-    iRet = SearchFirstOcc(head, iNo2);
+    iRet = SearchLastOcc(head, iNo2);
     
     if(iRet == -1)
     {
@@ -95,8 +101,8 @@ int main()
     }
     else
     {
-        printf("First Occurrence is at : %d\n", iRet);
+        printf("Last occurrence is at : %d\n", iRet);
     }
-
+    
     return 0;
 }

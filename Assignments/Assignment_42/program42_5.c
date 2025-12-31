@@ -48,26 +48,33 @@ void Display(PNODE first)
     printf("NULL\n");
 }
 
-int SearchFirstOcc(PNODE first, int no)
+int Minimum(PNODE first)
 {
-    int iFirstOcc = 1;
+    int iMin = 0;
+
+    if(first == NULL)
+    {
+        return -1;
+    }
+
+    iMin = first->data;
+    first = first->next;
 
     while(first != NULL)
     {
-        if((first->data) == no)
+        if(first->data < iMin)
         {
-            return iFirstOcc;
+            iMin = first->data;
         }
-        iFirstOcc++;
         first = first->next;
     }
     
-    return -1;
+    return iMin;
 }
 
 int main()
 {
-    int iValue = 0, iCnt = 0, iNo1 = 0, iNo2 = 0;
+    int iValue = 0, iCnt = 0, iNo = 0;
     int iRet = 0;
     PNODE head = NULL;
 
@@ -76,27 +83,17 @@ int main()
 
     for(iCnt = 1; iCnt <= iValue; iCnt++)
     {
-        printf("Enter data for node %d : ", iCnt);
-        scanf("%d", &iNo1);
+        printf("Enter the element for node %d : ", iCnt);
+        scanf("%d", &iNo);
 
-        InsertLast(&head, iNo1);
+        InsertLast(&head, iNo);
     }
-
+    
     Display(head);
 
-    printf("Enter element to find it's first occurrence : ");
-    scanf("%d", &iNo2);
-
-    iRet = SearchFirstOcc(head, iNo2);
+    iRet = Minimum(head);
     
-    if(iRet == -1)
-    {
-        printf("Element not Found\n");
-    }
-    else
-    {
-        printf("First Occurrence is at : %d\n", iRet);
-    }
+    printf("Smallest is %d",iRet);
 
     return 0;
 }
