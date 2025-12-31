@@ -52,22 +52,31 @@ void Display(PNODE first)
     printf("NULL\n");
 }
 
-void DisplayPerfect(PNODE first)
+void DisplayPrime(PNODE first)
 {
-    int iFact = 1, iSum = 0;
+    int iCnt = 0;
+    int isPrime = 0;
+
     while(first != NULL)
     {
-        iSum = 0;
+        isPrime = 1;
 
-        for(iFact = 1; iFact <= first->data/2; iFact++)
+        if(first->data <= 1)
         {
-            if(first->data % iFact == 0)
-            {
-                iSum = iSum + iFact;
-            }            
+            isPrime = 0;
         }
-
-        if(iSum == first->data)
+        else
+        {
+            for(iCnt = 2; iCnt <= first->data / 2; iCnt++)
+            {
+                if(first->data % iCnt == 0)
+                {
+                    isPrime = 0;
+                    break;
+                }
+            }
+        }
+        if(isPrime == 1)
         {
             printf("%d\t", first->data);
         }
@@ -94,7 +103,7 @@ int main()
 
     Display(head);
 
-    DisplayPerfect(head);
+    DisplayPrime(head);
 
     return 0;
 }

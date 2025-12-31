@@ -18,10 +18,6 @@ void InsertLast(PPNODE first, int No)
     PNODE newn = NULL;
 
     newn = (PNODE)malloc(sizeof(NODE));
-    if(newn == NULL)
-    {
-        return;
-    }
 
     newn->data = No;
     newn->next = NULL;
@@ -32,7 +28,7 @@ void InsertLast(PPNODE first, int No)
     }
     else
     {
-        temp = *first;
+        temp = (*first);
 
         while(temp->next != NULL)
         {
@@ -52,27 +48,35 @@ void Display(PNODE first)
     printf("NULL\n");
 }
 
-void DisplayPerfect(PNODE first)
+int SecMaximum(PNODE first)
 {
-    int iFact = 1, iSum = 0;
+    int iMax = 0;
+    int SecMax = -1;
+
+    if(first == NULL)
+    {
+        return -1;
+    }
+
+    iMax = first->data;
+    first = first->next;
+
     while(first != NULL)
     {
-        iSum = 0;
-
-        for(iFact = 1; iFact <= first->data/2; iFact++)
+        if(first->data > iMax)
         {
-            if(first->data % iFact == 0)
-            {
-                iSum = iSum + iFact;
-            }            
+            SecMax = iMax;
+            iMax = first->data;
+        }
+        else if(first->data > SecMax && first->data != iMax)
+        {
+            SecMax = first->data;
         }
 
-        if(iSum == first->data)
-        {
-            printf("%d\t", first->data);
-        }
         first = first->next;
     }
+    
+    return SecMax;
 }
 
 int main()
@@ -91,10 +95,12 @@ int main()
 
         InsertLast(&head, iNo);
     }
-
+    
     Display(head);
 
-    DisplayPerfect(head);
+    iRet = SecMaximum(head);
+    
+    printf("Second Largest is %d",iRet);
 
     return 0;
 }

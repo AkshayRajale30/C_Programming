@@ -18,10 +18,6 @@ void InsertLast(PPNODE first, int No)
     PNODE newn = NULL;
 
     newn = (PNODE)malloc(sizeof(NODE));
-    if(newn == NULL)
-    {
-        return;
-    }
 
     newn->data = No;
     newn->next = NULL;
@@ -52,27 +48,20 @@ void Display(PNODE first)
     printf("NULL\n");
 }
 
-void DisplayPerfect(PNODE first)
+int Addition(PNODE first)
 {
-    int iFact = 1, iSum = 0;
+    int iSum = 0;
+
     while(first != NULL)
     {
-        iSum = 0;
-
-        for(iFact = 1; iFact <= first->data/2; iFact++)
+        if(first->data % 2 == 0)
         {
-            if(first->data % iFact == 0)
-            {
-                iSum = iSum + iFact;
-            }            
-        }
-
-        if(iSum == first->data)
-        {
-            printf("%d\t", first->data);
+            iSum = iSum + first->data;
         }
         first = first->next;
     }
+    
+    return iSum;
 }
 
 int main()
@@ -94,7 +83,9 @@ int main()
 
     Display(head);
 
-    DisplayPerfect(head);
+    iRet = Addition(head);
+    
+    printf("Addition %d",iRet);
 
     return 0;
 }

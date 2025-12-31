@@ -52,25 +52,19 @@ void Display(PNODE first)
     printf("NULL\n");
 }
 
-void DisplayPerfect(PNODE first)
+void SumDigit(PNODE first)
 {
-    int iFact = 1, iSum = 0;
+    int iDigit = 0, iSum = 0;
     while(first != NULL)
     {
-        iSum = 0;
-
-        for(iFact = 1; iFact <= first->data/2; iFact++)
+        iDigit = 0, iSum = 0;
+        while(first->data != 0)
         {
-            if(first->data % iFact == 0)
-            {
-                iSum = iSum + iFact;
-            }            
+            iDigit = (first->data % 10);
+            iSum = iSum + iDigit;
+            first->data = first->data / 10;
         }
-
-        if(iSum == first->data)
-        {
-            printf("%d\t", first->data);
-        }
+        printf("%d\t",iSum);
         first = first->next;
     }
 }
@@ -78,7 +72,6 @@ void DisplayPerfect(PNODE first)
 int main()
 {
     int iValue = 0, iCnt = 0, iNo = 0;
-    int iRet = 0;
     PNODE head = NULL;
 
     printf("Enter the number of nodes : ");
@@ -94,7 +87,7 @@ int main()
 
     Display(head);
 
-    DisplayPerfect(head);
+    SumDigit(head);
 
     return 0;
 }
